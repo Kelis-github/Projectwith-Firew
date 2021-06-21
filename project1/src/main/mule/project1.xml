@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="ca881e7d-1d0b-420f-a22c-3f60ea2510a2" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="project1Flow" doc:id="ac587329-e94d-4120-aec4-9df1c2c0ce04" >
+		<http:listener doc:name="Listener" doc:id="7fd9f37b-2805-46b1-a135-258ddbe737d4" path="/hello" config-ref="HTTP_Listener_config"/>
+		<set-variable value="#[attributes.queryParams.name]" doc:name="Set Variable" doc:id="e4fd4a41-b6ea-4d82-b88a-977557513278" variableName="name"/>
+		<set-payload value='#["Hell0 Kebede,welcome to mulesoft,today is "++  (now()) as String {format: "MM/dd/yyyy HH:mm:ss"}]' doc:name="Set Payload" doc:id="8a48aae8-db05-4ad4-a9f6-e71e1b38aaed" />
+	</flow>
+</mule>
