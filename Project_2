@@ -1,0 +1,45 @@
+        Mulesoft Revision Sessions project_2 Set by:Kebede Eliso
+Multiple Choices
+1.	A 	 2. A&B		3. A&B		4. C
+Challenge Questions
+  5. C		6. B	 	
+7.
+     
+    %dw 2.0                       
+    output json              
+    // a. The square of 2
+    fun enter2(Num1) =
+        Num1*Num1
+    // b. The Cube of 3 
+    fun enter3(Num2) = 
+      Num2*Num2*Num2
+    ---
+    {
+     "The Square of 2 is":enter2(2),
+    "The Cube of 3 is":enter3(3)
+    }
+or
+    %dw 2.0
+    output application/json
+    // a. The square of 2
+    var squareof2 =
+         (n) -> n*n
+    // b. The Cube of 3 
+    var cubeof3 = 
+        (n) -> n*n*n
+    ---
+    {
+    "The square of 2 is":squareof2(2),
+    "The Cube of 3 is":cubeof3(3)
+     }
+ 
+
+8. 	
+    %dw 2.0
+    import * from dw::core::Strings
+    output application/json
+    var myTime="2021-06-19T13:20:31.000Z"
+    ---
+    substringBefore(myTime,"T")
+	
+
