@@ -12,4 +12,12 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<set-variable value="#[attributes.queryParams.name]" doc:name="Set Variable" doc:id="4c8d212c-1e36-4902-9ef8-838266f811dd" variableName="name"/>
 		<set-payload value='#["Hell0 Kebede,welcome to mulesoft,today is "++  (now()) as String {format: "MM/dd/yyyy HH:mm:ss"}]' doc:name="Set Payload" doc:id="5789cd86-2954-4cfa-b3b9-6a989c8e3981" />
 	</flow>
+	<flow name="projectwelcomemsgFlow1" doc:id="b36a3df0-cdb9-4d5f-9bb5-07afe2f37c38" >
+		<scheduler doc:name="Scheduler" doc:id="5fe60c8c-5de1-4165-9315-ed54a730ec3a" >
+			<scheduling-strategy >
+				<cron expression="0 20 11 * * ? *" timeZone="America/Los_Angeles"/>
+			</scheduling-strategy>
+		</scheduler>
+		<logger level="INFO" doc:name="Logger" doc:id="cfa5b2f3-96dd-4db3-acfb-aef093374917" message="test scheduler"/>
+	</flow>
 </mule>
